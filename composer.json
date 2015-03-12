@@ -1,0 +1,19 @@
+{
+    "name": "jhesyong/simple-excel-parser",
+    "description": "A simple excel parser based on phpoffice/phpexcel",
+    "require": {
+        "phpoffice/phpexcel": "1.8.0"
+    },
+    "license": "LGPL",
+    "authors": [
+        {
+            "name": "Jhesyong Jiang",
+            "email": "jhesyong@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Jhesyong\\Excel\\": "src/"
+        }
+    }
+}
