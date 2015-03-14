@@ -1,5 +1,5 @@
-# simple-excel-parser
-A simple excel parser to parse each row into associative arrays.
+# Simple Excel Parser
+A simple excel parser that parses each row into an associative array.
 
 ## When to use this?
 - Your excel file has the header at the first row, and data at the rest rows.
