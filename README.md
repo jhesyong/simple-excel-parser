@@ -1,5 +1,5 @@
 # Simple Excel Parser
-A simple excel parser that parses each row into an associative array.
+A simple excel parser that parses each row to an associative array.
 
 ## When to use this?
 - Your excel file has the header at the first row, and data at the rest rows.
@@ -7,7 +7,7 @@ A simple excel parser that parses each row into an associative array.
 - You want to map the data values to database enums.
 
 ## Example
-You want to parse the excel with the following format.
+You want to parse an excel file with the following format.
 
 | Name   | Age | Gender | Phone 1      | Phone 2      |
 |--------|-----|--------|--------------|--------------|
@@ -15,7 +15,7 @@ You want to parse the excel with the following format.
 | Peter  | 25  | Male   | 222-333-4444 | 555-666-7777 |
 | Monica | 31  | Female | 666-666-6666 | 555-555-5555 |
 
-And you want to map the header titles to database keys, and map genders to `'m'` or `'f'`.
+And you want to map the header titles to database table fields, and map genders to `'m'` or `'f'`.
 
     $parser = new Jhesyong\Excel\Parser;
 
@@ -26,7 +26,7 @@ And you want to map the header titles to database keys, and map genders to `'m'`
     // Map the values: 'm' is for 'Male', and 'f' is for 'Female'
     $parser->addHeader('Gender', 'gender')->withOptions(['m' => 'Male', 'f' => 'Female']);
 
-    // You can use a regulare expression and pass a callback to map multiple header titles.
+    // You can use a regular expression and pass a callback to map multiple header titles.
     // In this case, 'Phone 1' will be mapped to 'phone_1'
     $parser->addHeader('/^Phone \d+$/', function($title)
     {
@@ -43,15 +43,15 @@ And you want to map the header titles to database keys, and map genders to `'m'`
 
 ## FAQ
 
-### I have multiple titles of the same text, but I want to map them to different keys.
-You can add headers with the same title but different keys in the desired order.
+### I have multiple titles of the same text, but I want to map them to different database table fields.
+You can add headers with the same title but different field names in the desired order.
 
     // The first 'Phone' will be mapped to 'phone_1',
     // and the second 'Phone' will be mapped to 'phone_2'
     $parser->addHeader('Phone', 'phone_1');
     $parser->addHeader('Phone', 'phone_2');
 
-### I want to use the title as the key
+### I just want to use the title as the field name
 You can omit the second argument.
 
     // 'Phone' will be mapped to 'Phone'
