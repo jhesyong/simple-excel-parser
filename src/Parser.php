@@ -58,10 +58,10 @@ class Parser
 
 	protected function matchHeader($rawHeader)
 	{
-		$match = function($title)
-		{
-			$headers = $this->headers;
+		$headers = $this->headers;
 
+		$match = function($title) use (&$headers)
+		{
 			foreach ($headers as $key => $header)
 			{
 				if ($header->match($title))
