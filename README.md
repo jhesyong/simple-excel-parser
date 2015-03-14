@@ -58,4 +58,4 @@ You can omit the second argument.
     $parser->addHeader('Phone');
 
 ### I want to pre-define the header mapping and the options.
-You can extends the class and write your rules in the constructor.
+You can extend the `Parser` and write your rules in the constructor.
